@@ -12,11 +12,15 @@ integer m and you have to return the integer n such as
 n^3 + (n-1)^3 + ... + 1^3 = m if such a n exists or -1 if there is no such n. */
 
 function findNb(m) {
-    // your code
-    return (-1);
+  let i = 0
+  while (m > 0) {
+    i++
+    m -= Math.pow(i, 3)
+  }
+  return m === 0 ? i : -1
 }
 
-findNb(4183059834009) // Should equal 2022
-findNb(24723578342962) // Should equal -1
-findNb(135440716410000) // Should equal 4824
-findNb(40539911473216) // Should equal 3568
+console.log(findNb(4183059834009)) // Should equal 2022
+console.log(findNb(24723578342962)) // Should equal -1
+console.log(findNb(135440716410000)) // Should equal 4824
+console.log(findNb(40539911473216)) // Should equal 3568
