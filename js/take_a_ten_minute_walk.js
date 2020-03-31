@@ -16,5 +16,28 @@ direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty
 array (that's not a walk, that's standing still!). */
 
 function isValidWalk(walk) {
-  //insert brilliant code here
+  if (walk.length === 10) {
+    const tracker = {
+      n: 0,
+      e: 0,
+      s: 0,
+      w: 0
+    }
+    for (let i = 0; i < walk.length; i++) {
+      const key = walk[i]
+      tracker[key]++
+    }
+    const vertical = tracker.n - tracker.s
+    const horizontal = tracker.e - tracker.w
+    return vertical === 0 && horizontal === 0 ? true : false
+  } else {
+    return false
+  }
 }
+
+// Should be true
+console.log(isValidWalk(['n','s','n','s','n','s','n','s','n','s']))
+//Should be true
+console.log(isValidWalk(['w','e','w','e','w','e','w','e','w','e','w','e']))
+//Should be false
+console.log(isValidWalk(['n','n','n','s','n','s','n','s','n','s']))
