@@ -8,7 +8,10 @@ Examples
 "double  spaces"      ==> "elbuod  secaps" */
 
 function reverseWords(str) {
-  // Go for it
+  /* First split/reverse/join flips every character
+  Second split/reverse/join flips every word so that the first word is back
+  in the first spot but with the characters reversed*/
+  return str.split('').reverse().join('').split(' ').reverse().join(' ')
 }
 
 // 'ehT kciuq nworb xof spmuj revo eht yzal .god'
