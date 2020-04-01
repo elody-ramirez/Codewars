@@ -11,7 +11,8 @@
 Calculate the row sums of this triangle from the row index (starting at index 1)*/
 
 function rowSumOddNumbers(n) {
-	// TODO
+  // The sum of each row is the cube of the row number
+	return n**3
 }
 
 console.log(rowSumOddNumbers(1))
