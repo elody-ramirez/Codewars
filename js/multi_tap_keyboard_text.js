@@ -46,22 +46,43 @@ to be able to test new ones rapidly.) */
 
 
 const phone = {
-  const key2: ['A','B','C','2'],
-  const key3: ['D','E','F','3'],
-  const key4: ['G','H','I','4'],
-  const key5: ['J','K','L','5'],
-  const key6: ['M','N','O','6'],
-  const key7: ['P','Q','R','S','7'],
-  const key8: ['T','U','V','8'],
-  const key9: ['W','X','Y','Z','9'],
-  const key0: [' ','0']
+  key2: ['A','B','C','2'],
+  key3: ['D','E','F','3'],
+  key4: ['G','H','I','4'],
+  key5: ['J','K','L','5'],
+  key6: ['M','N','O','6'],
+  key7: ['P','Q','R','S','7'],
+  key8: ['T','U','V','8'],
+  key9: ['W','X','Y','Z','9'],
+  key0: [' ','0'],
 
-  const findKey(character) = {
+  findKey: function(character) {
+    for (const property in this) {
+      const temp = this[property]
+      if (temp.find(element => element === character)) {
+        return property
+      }
+    }
+  },
+
+  findPresses: function(character) {
+    const location = this.findKey(character.toUpperCase())
+    return this[location].findIndex(element => element === character.toUpperCase()) + 1
   }
 }
 
 function presses(phrase) {
+  let count = 0
+  for (let i = 0; i < phrase.length; i++) {
+    const char = phrase[i]
+    if (char !== '1' && char !=='*' && char !== '#') {
+      count += phone.findPresses(char)
+    } else {
+      count++
+    }
+  }
+  return count
 }
 
-console.log(presses("LOL")) // 9
+console.log(presses("lol")) // 9
 console.log(presses("HOW R U")) // 13
