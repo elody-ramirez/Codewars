@@ -28,7 +28,19 @@ Example:
 (Condition 2) not fulfilled). */
 
 function bouncingBall(h,  bounce,  window) {
-  // your code here
+  if ((h > window) && (1 > bounce > 0)) {
+    let count = 0
+    while (h > window) {
+      count++
+      h *= bounce
+      if (h > window) {
+        count++
+      }
+    }
+    return count
+  } else {
+    return -1
+  }
 }
 
 
