@@ -44,8 +44,23 @@ all 26 letters by hand, try to avoid doing so! (Imagine you work at a phone
 manufacturer who might be testing out different keyboard layouts, and you want
 to be able to test new ones rapidly.) */
 
+
+const phone = {
+  const key2: ['A','B','C','2'],
+  const key3: ['D','E','F','3'],
+  const key4: ['G','H','I','4'],
+  const key5: ['J','K','L','5'],
+  const key6: ['M','N','O','6'],
+  const key7: ['P','Q','R','S','7'],
+  const key8: ['T','U','V','8'],
+  const key9: ['W','X','Y','Z','9'],
+  const key0: [' ','0']
+
+  const findKey(character) = {
+  }
+}
+
 function presses(phrase) {
-  // To do...
 }
 
 console.log(presses("LOL")) // 9
