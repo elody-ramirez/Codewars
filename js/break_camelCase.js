@@ -3,7 +3,16 @@ a space between words. */
 
 // complete the function
 function solution(string) {
-  
+  let answer = ""
+  for (let i = 0; i < string.length; i++){
+    if (string[i] === string[i].toUpperCase()) {
+      answer+= " "
+      answer+= string[i]
+    } else {
+      answer+= string[i]
+    }
+  }
+  return answer
 }
 
 console.log(solution('camelCasing'))
