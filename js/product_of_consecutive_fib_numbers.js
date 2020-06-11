@@ -42,9 +42,39 @@ productFib(800) # should return {34, 55, false},
 Note:
 You can see examples for your language in "Sample Tests". */
 
+
+let fibNum = function() {
+  let memo = {}
+
+  function fib(n) {
+    let value
+
+    if (n in memo) {
+      value = memo[n]
+    }
+    else {
+      if (n <= 1) {
+        value = n
+      } else {
+        value = fib(n - 1) + fib(n - 2)
+      }
+      memo[n] = value
+    }
+    return value
+  }
+  return fib
+}()
+
 function productFib(prod){
-  // ...
+  let n = 0;
+  let m = 1;
+  while(n*m < prod) {
+    m += n;
+    n = m - n;
+  }
+  return [n, m, n*m===prod];
 }
+
 
 console.log(productFib(4895)) // [55, 89, true])
 console.log(productFib(5895)) // [89, 144, false])
