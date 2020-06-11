@@ -12,26 +12,15 @@ For example:
 
  persistence(4) === 0   because 4 is already a one-digit number */
 
-
 function persistence(num) {
   let sum = 0
-  while (num > 9) {
-    const array = (num + '').split('').map((i) => { return Number(i); })
-    const test = helper(array)
-    if (test >= 0) {
-      num = test
-      sum++
-    }
-  }
-  return sum
-}
+  string = num.toString()
 
-function helper(array) {
-  if (array.length != 1) {
-    let prod = array.reduce((accum, current) => accum * current)
-    return prod
+  while (string.length > 1) {
+    sum++;
+    string = string.split('').map(Number).reduce((a, b) => a * b).toString();
   }
-  return -1
+  return sum;
 }
 
 console.log(persistence(39))   // 3
