@@ -19,22 +19,45 @@ Divison should be integer division. For example, this should return 2, not
 
 eight(dividedBy(three()));
 */
+//helper function
+function checkfunc(num, func) {
+  if (!func) {
+    return num
+  }
+  return func(num)
+}
 
-function zero() {}
-function one() {}
-function two() {}
-function three() {}
-function four() {}
-function five() {}
-function six() {}
-function seven() {}
-function eight() {}
-function nine() {}
+function zero(func) { return checkfunc(0, func) }
+function one(func) { return checkfunc(1, func) }
+function two(func) { return checkfunc(2, func) }
+function three(func) { return checkfunc(3, func) }
+function four(func) { return checkfunc(4, func) }
+function five(func) { return checkfunc(5, func) }
+function six(func) { return checkfunc(6, func) }
+function seven(func) { return checkfunc(7, func) }
+function eight(func) { return checkfunc(8, func) }
+function nine(func) { return checkfunc(9, func) }
 
-function plus() {}
-function minus() {}
-function times() {}
-function dividedBy() {}
+function plus(x) {
+  return function(y) {
+    return y + x;
+	}
+}
+function minus(x) {
+  return function(y) {
+		return y - x;
+	}
+}
+function times(x) {
+  return function(y) {
+    return y * x;
+  }
+}
+function dividedBy(x) {
+  return function(y) {
+		return Math.floor(y / x);
+	}
+}
 
 console.log(seven(times(five()))) // 35
 console.log(four(plus(nine()))) // 13
