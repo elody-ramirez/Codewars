@@ -9,15 +9,17 @@
 import string
 
 def is_pangram(s):
-    def char_range(c1, c2):
-        for c in range(ord(c1), ord(c2)+1):
-            yield chr(c)
-    count = 0
-    s = s.lower()
-    for c in char_range('a', 'z'):
-        if s.find(c) != -1:
-            count += 1
-    return True if count == 26 else False
+    return True if set('abcdefghijklmnopqrstuvwxyz').issubset(set(s.lower())) else False
+# def is_pangram(s):
+#     def char_range(c1, c2):
+#         for c in range(ord(c1), ord(c2)+1):
+#             yield chr(c)
+#     count = 0
+#     s = s.lower()
+#     for c in char_range('a', 'z'):
+#         if s.find(c) != -1:
+#             count += 1
+#     return True if count == 26 else False
 
 pangram = "The quick, brown fox jumps over the lazy dog!"
 print(is_pangram(pangram)) #True
