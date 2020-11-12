@@ -9,7 +9,18 @@ with the p(i) in increasing order and n(i) empty if n(i) is 1.
 Example: n = 86240 should return "(2**5)(5)(7**2)(11)" */
 
 function primeFactors(n){
-    //your code here
+  return isPrime(n)
+}
+
+function isPrime(num){
+  for (let i = 2; i < num; i++){
+    if(num % i === 0) return false;
+  return num > 1;
+  }
 }
 
 console.log(primeFactors(7775460)) // (2**2)(3**3)(5)(7)(11**2)(17)
+console.log(primeFactors(2))
+console.log(primeFactors(3))
+console.log(primeFactors(7))
+console.log(primeFactors(9))
