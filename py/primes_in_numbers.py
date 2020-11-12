@@ -9,36 +9,17 @@
 #Example: n = 86240 should return "(2**5)(5)(7**2)(11)" */
 
 def prime_factors(n):
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-             n //= i
-             factors.append(i)
-    if n > 1:
-        factors.append(n)
-    this_dict = list_to_dict(factors)
-    return dict_to_string(this_dict)
-
-def list_to_dict(lst):
-    dict = {}
-    for i in lst:
-        if i in dict:
-            dict[i] += 1
-        else:
-            dict[i] = 1
-    return dict
-
-def dict_to_string(d):
-    result = ''
-    for key in d:
-        if d[key] > 1:
-            result += '('+str(key)+'**'+str(d[key])+')'
-        else:
-            result += '('+str(key)+')'
+    result = ""
+    i = 1
+    while n > 1:
+        i += 1
+        count = 0
+        while n % i == 0:
+            n /= i
+            count += 1
+        if count > 0:
+            result += "("+str(i)+"**"+str(count)+")"
+    result = result.replace("**1","")
     return result
-
 
 print(prime_factors(7775460)) #(2**2)(3**3)(5)(7)(11**2)(17)
