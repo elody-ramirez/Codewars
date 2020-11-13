@@ -21,7 +21,11 @@
 # anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 
 def anagrams(word, words):
-    #your code here
+    result =[]
+    for i in range(0, len(words)):
+        if (sorted(word) == sorted(words[i])):
+            result.append(words[i])
+    return result
 
 print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
 # ['aabb', 'bbaa']
