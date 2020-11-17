@@ -38,8 +38,35 @@
 #   [3, 0, 0, 4, 8, 1, 1, 7, 9]
 # ]); // => false
 
+import itertools
+
 def valid_solution(board):
-    #
+    answer = [1,2,3,4,5,6,7,8,9]
+    return check_row(board, answer) and check_col(board, answer) and check_3by3(board, answer)
+
+def check_row(board, answer):
+    for i in range(9):
+        if answer != sorted(board[i]):
+            return False
+    return True
+
+def check_col(board, answer):
+    board = list(zip(*board))
+    for i in range(9):
+        if answer != sorted(board[i]):
+            return False
+    return True
+
+def check_3by3(board, answer):
+    squares = []
+    for i in range(0, 9, 3):
+        for j in range(0, 9, 3):
+          square = list(itertools.chain.from_iterable(row[j:j+3] for row in board[i:i+3]))
+          squares.append(square)
+    for i in range(9):
+        if answer != sorted(squares[i]):
+            return False
+    return True
 
 try:
     valid_solution = validSolution
@@ -54,7 +81,7 @@ print(valid_solution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
                                    [7, 1, 3, 9, 2, 4, 8, 5, 6],
                                    [9, 6, 1, 5, 3, 7, 2, 8, 4],
                                    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-                                   [3, 4, 5, 2, 8, 6, 1, 7, 9]]) # True
+                                   [3, 4, 5, 2, 8, 6, 1, 7, 9]])) # True
 
 print(valid_solution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
                                    [6, 7, 2, 1, 9, 0, 3, 4, 9],
@@ -64,4 +91,4 @@ print(valid_solution([[5, 3, 4, 6, 7, 8, 9, 1, 2],
                                    [7, 1, 3, 9, 2, 4, 8, 5, 6],
                                    [9, 0, 1, 5, 3, 7, 2, 1, 4],
                                    [2, 8, 7, 4, 1, 9, 6, 3, 5],
-                                   [3, 0, 0, 4, 8, 1, 1, 7, 9]]) #False 
+                                   [3, 0, 0, 4, 8, 1, 1, 7, 9]])) #False
