@@ -40,33 +40,58 @@
 
 import itertools
 
+answer = [1,2,3,4,5,6,7,8,9]
+
 def valid_solution(board):
-    answer = [1,2,3,4,5,6,7,8,9]
-    return check_row(board, answer) and check_col(board, answer) and check_3by3(board, answer)
-
-def check_row(board, answer):
-    for i in range(9):
-        if answer != sorted(board[i]):
+    # check rows
+    for row in board:
+        if answer != sorted(row):
             return False
-    return True
 
-def check_col(board, answer):
-    board = list(zip(*board))
-    for i in range(9):
-        if answer != sorted(board[i]):
+    # check columns
+    for column in zip(*board):
+        if answer != sorted(column):
             return False
-    return True
 
-def check_3by3(board, answer):
-    squares = []
+    # check 3by3s
     for i in range(0, 9, 3):
         for j in range(0, 9, 3):
-          square = list(itertools.chain.from_iterable(row[j:j+3] for row in board[i:i+3]))
-          squares.append(square)
-    for i in range(9):
-        if answer != sorted(squares[i]):
-            return False
+            square = []
+            square = list(itertools.chain.from_iterable(row[j:j+3] for row in board[i:i+3]))
+            if answer != sorted(square):
+                return False
+
+    # If rows, columns and 3by3s pass
     return True
+
+# Brute Force
+# def valid_solution(board):
+#
+#     return check_row(board, answer) and check_col(board, answer) and check_3by3(board, answer)
+#
+# def check_row(board):
+#     for i in range(9):
+#         if answer != sorted(board[i]):
+#             return False
+#     return True
+#
+# def check_col(board):
+#     board = list(zip(*board))
+#     for j in range(9):
+#         if answer != sorted(board[j]):
+#             return False
+#     return True
+#
+# def check_3by3(board):
+#     squares = []
+#     for i in range(0, 9, 3):
+#         for j in range(0, 9, 3):
+#           square = list(itertools.chain.from_iterable(row[j:j+3] for row in board[i:i+3]))
+#           squares.append(square)
+#     for i in range(9):
+#         if answer != sorted(squares[i]):
+#             return False
+#     return True
 
 try:
     valid_solution = validSolution
