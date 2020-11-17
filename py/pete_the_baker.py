@@ -19,13 +19,17 @@
 # flour: 2000, milk: 2000})
 
 def cakes(recipe, available):
-    possible = []
-    if len(recipe) > len(available):
-        return 0
-    else:
-        for k in recipe:
-            possible.append(int(available[k]/recipe[k]))
-    return min(possible)
+    return min(available.get(k, 0)/recipe[k] for k in recipe)
+
+# Brute Force solve
+# def cakes(recipe, available):
+#     possible = []
+#     if len(recipe) > len(available):
+#         return 0
+#     else:
+#         for k in recipe:
+#             possible.append(int(available[k]/recipe[k]))
+#     return min(possible)
 
 recipe = {"flour": 500, "sugar": 200, "eggs": 1}
 available = {"flour": 1200, "sugar": 1200, "eggs": 5, "milk": 200}
