@@ -27,17 +27,21 @@
 # Don't modify the input
 # For C: The result is freed.
 
-def order_weight(strng):
-    # first we sort had to sort the string as 2000 would come before 11
-    str = sorted(strng.split())
+def order_weight(str):
+    return " ".join(sorted(sorted(str.split()), key=lambda x: sum(int(num) for num in x)))
 
-    # we use the function created below to sort each integer by its value
-    result = sorted(str, key=total)
-    return ' '.join(result)
-
-# This function is designed to return the sum of the of each integer
-def total(lst):
-    return sum([int(num) for num in lst])
+# Multiple Lines Method
+# def order_weight(strng):
+#     # first we sort had to sort the string as 2000 would come before 11
+#     str = sorted(strng.split())
+#
+#     # we use the function created below to sort each integer by its value
+#     result = sorted(str, key=total)
+#     return ' '.join(result)
+#
+# # This function is designed to return the sum of the of each integer
+# def total(lst):
+#     return sum([int(num) for num in lst])
 
 print(order_weight("103 123 4444 99 2000"))
 #                                                         "2000 103 123 4444 99"
