@@ -13,18 +13,26 @@
 # Note: do NOT mutate the nodes!
 
 def loop_size(node):
-    size = 1
-    onestep = node
-    twostep = node.next
-    while(onestep != twostep):
-        twostep = twostep.next.next
-        onestep = onestep.next
-    # we are at the beginning of the loop now
-    twostep = onestep.next
-    while(onestep != twostep):
-        size += 1
-        twostep = twostep.next
-    return size
+    list = []
+    while not node in list:
+        list.append(node)
+        node = node.next
+    return len(list) - list.index(node)
+
+# Brute Force Method
+# def loop_size(node):
+#     onestep = node
+#     twostep = node.next
+#     while(onestep != twostep):
+#         twostep = twostep.next.next
+#         onestep = onestep.next
+#     # we are at the beginning of the loop now
+#     size = 1
+#     twostep = onestep.next
+#     while(onestep != twostep):
+#         size += 1
+#         twostep = twostep.next
+#     return size
 
 class Node:
     def __init__(self, next = None):
