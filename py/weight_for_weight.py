@@ -28,7 +28,16 @@
 # For C: The result is freed.
 
 def order_weight(strng):
-    pass
+    mem = {}
+    str = strng.split()
+    for num in range(len(str)):
+        total = sum(int(digit) for digit in (str[num]))
+        mem[str[num]] = total
+    sorted_x = sorted(mem.items(), key=lambda x: x[1])
+    result = []
+    for key in sorted_x:
+        result.append(key[0])
+    return ' '.join(result)
 
 print(order_weight("103 123 4444 99 2000"))
 #                                                         "2000 103 123 4444 99"
