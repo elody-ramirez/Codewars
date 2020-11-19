@@ -29,11 +29,17 @@
 
 def order_weight(strng):
     mem = {}
+    # This step is to create a dictionary of key-value pairs with the string as
+    # the key and the sum of the integer as the value
     str = strng.split()
     for num in range(len(str)):
         total = sum(int(digit) for digit in (str[num]))
         mem[str[num]] = total
+
+    # This step is to sort the dictionary by its value
     sorted_x = sorted(mem.items(), key=lambda x: x[1])
+
+    # This step is to create a list and return as a string
     result = []
     for key in sorted_x:
         result.append(key[0])
