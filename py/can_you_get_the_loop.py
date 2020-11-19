@@ -13,7 +13,22 @@
 # Note: do NOT mutate the nodes!
 
 def loop_size(node):
-    pass
+    size = 1
+    onestep = node
+    twostep = node.next
+    while(onestep != twostep):
+        twostep = twostep.next.next
+        onestep = onestep.next
+    # we are at the beginning of the loop now
+    twostep = onestep.next
+    while(onestep != twostep):
+        size += 1
+        twostep = twostep.next
+    return size
+
+class Node:
+    def __init__(self, next = None):
+        self.next = next
 
 # Make a short chain with a loop of 3
 node1 = Node()
@@ -27,7 +42,7 @@ node4.next = node2
 print(loop_size(node1))                      # 3, Loop size of 3 expected
 
 # Make a longer chain with a loop of 29
-nodes = [Node() for _ in xrange(50)]
+nodes = [Node() for _ in range(50)]
 for node, next_node in zip(nodes, nodes[1:]):
     node.next = next_node
 nodes[49].next = nodes[21]
