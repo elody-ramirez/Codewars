@@ -28,22 +28,16 @@
 # For C: The result is freed.
 
 def order_weight(strng):
-    mem = {}
-    # This step is to create a dictionary of key-value pairs with the string as
-    # the key and the sum of the integer as the value
-    str = strng.split()
-    for num in range(len(str)):
-        total = sum(int(digit) for digit in (str[num]))
-        mem[str[num]] = total
+    # first we sort had to sort the string as 2000 would come before 11
+    str = sorted(strng.split())
 
-    # This step is to sort the dictionary by its value
-    sorted_x = sorted(mem.items(), key=lambda x: x[1])
-
-    # This step is to create a list and return as a string
-    result = []
-    for key in sorted_x:
-        result.append(key[0])
+    # we use the function created below to sort each integer by its value
+    result = sorted(str, key=total)
     return ' '.join(result)
+
+# This function is designed to return the sum of the of each integer
+def total(lst):
+    return sum([int(num) for num in lst])
 
 print(order_weight("103 123 4444 99 2000"))
 #                                                         "2000 103 123 4444 99"
