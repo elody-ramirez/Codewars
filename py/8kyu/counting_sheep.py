@@ -15,8 +15,11 @@
 # Hint: Don't forget to check for bad values like null/undefined
 
 def count_sheeps(sheep):
-  # TODO May the force be with you
-  pass
+    count = 0
+    for x in sheep:
+        if (x == True):
+            count += 1
+    return count
 
 array1 = [True,  True,  True,  False,
           True,  True,  True,  True ,
