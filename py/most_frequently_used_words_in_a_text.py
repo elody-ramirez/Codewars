@@ -34,10 +34,16 @@ from collections import Counter
 import re
 
 def top_3_words(text):
+    # this splits text into an array with each entry being a text/word
     words = re.findall("[\s]?([']?[A-Za-z]+'?[A-Za-z']*)[\s,:]?", text)
+
+    # this initiates the counter and creates a dictionary of each unique
+    # text/word with the occurence as a value
     c = Counter()
     for x in words:
         c[x.lower()] += 1
+
+    # this returns the top 3 texts/words based on their occurence
     return [x[0] for x in c.most_common(3)]
 
 print(top_3_words("a a a  b  c c  d d d d  e e e e e")) # "e", "d", "a"
