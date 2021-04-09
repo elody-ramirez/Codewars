@@ -17,14 +17,23 @@
 # Write a function that takes number of balls greater than 1 and calculates how
 # many levels you can build a triangle.
 
+# Cleaned Up
 def pyramid(balls):
     count = 0
-    while (balls > 0):
+    while (balls >= 0):
         count += 1
         balls -= count
-        if (balls < 0):
-            count -= 1
-    return count
+    return count - 1
+
+# Brute Force
+# def pyramid(balls):
+#     count = 0
+#     while (balls > 0):
+#         count += 1
+#         balls -= count
+#         if (balls < 0):
+#             count -= 1
+#     return count
 
 print(pyramid(1)) # 1
 print(pyramid(4)) # 2
