@@ -8,8 +8,11 @@
 # be empty.
 
 def find_smallest_int(arr):
-    # Code here
-
+    smallest = arr[0]
+    for x in arr:
+        if (x < smallest):
+            smallest = x
+    return smallest
 
 print(find_smallest_int([78, 56, 232, 12, 11, 43])) # 11
 print(find_smallest_int([78, 56, -2, 12, 8, -33])) # 33
