@@ -38,12 +38,20 @@
 # productFib(714) # should return {21, 34, true},
 # productFib(800) # should return {34, 55, false},
 
+# Initial solution to problem
+# def productFib(prod):
+#     n = 0
+#     m = 1
+#     while n * m < prod:
+#         m += n
+#         n = m - n
+#     return [n, m, n * m == prod]
+
+# Optimized code
 def productFib(prod):
-    n = 0
-    m = 1
-    while (n * m < prod):
-        m += n
-        n = m - n
+    n, m = 0, 1
+    while n * m < prod:
+        n, m = m, n + m
     return [n, m, n * m == prod]
 
 print(productFib(4895)) # 55, 89, True
