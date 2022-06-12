@@ -36,4 +36,12 @@
 # productFib(800) # should return {34, 55, 0},
 # -----
 # productFib(714) # should return {21, 34, true},
-# productFib(800) # should return {34, 55, false}, 
+# productFib(800) # should return {34, 55, false},
+
+def productFib(prod):
+    # your code
+    return
+
+
+print(productFib(4895)) # 55, 89, True
+print(productFib(5895)) # 89, 144, False
