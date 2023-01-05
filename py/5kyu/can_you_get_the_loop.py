@@ -57,5 +57,5 @@ nodes[49].next = nodes[21]
 print(loop_size(nodes[0]))                   # 29, Loop size of 29 expected
 
 # Make a very long chain with a loop of 1087
-chain = create_chain(3904, 1087)
-print(loop_size(chain))                      # 1087, Loop size of 1087 expected
+#chain = create_chain(3904, 1087)
+# print(loop_size(chain))                      # 1087, Loop size of 1087 expected
