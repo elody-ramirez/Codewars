@@ -41,11 +41,13 @@
 # should raise an error (ValueError or invalid_argument or argument-error or
 # DomainError or ... )
 # or return `-1` or ERROR or Nothing or None depending on the language.
+from math import ceil
+
 def new_avg(arr, newavg):
     """Function to get additional number for given avg"""
     length = len(arr) + 1
     suma = sum(arr)
-    new_donation = (newavg * length) - suma
+    new_donation = ceil((newavg * length) - suma)
     if new_donation < 0:
         raise ValueError("Error expected")
     return new_donation
