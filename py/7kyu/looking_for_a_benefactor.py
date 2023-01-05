@@ -43,7 +43,10 @@
 # or return `-1` or ERROR or Nothing or None depending on the language.
 def new_avg(arr, newavg):
     """Function to get additional number for given avg"""
-    return 32
+    length = len(arr) + 1
+    suma = sum(arr)
+    x = (newavg * length) - suma
+    return x
 
 print(new_avg([14, 30, 5, 7, 9, 11, 16], 90))    #628
 print(new_avg([14, 30, 5, 7, 9, 11, 15], 92))    #645
